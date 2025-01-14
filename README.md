@@ -10,19 +10,19 @@ Guide here: https://github.com/aidilfahmi/Testnet/blob/main/Tutorials/vast.ai.md
 
 4. Setting up Prover (0x-Fill with your address)
 
-curl -L github.com/cysic-labs/phase2_libs/releases/download/v1.0.0/setup_prover.sh > ~/setup_prover.sh && bash ~/setup_prover.sh 0x-Fill-in-your-reward-address-here
+"curl -L github.com/cysic-labs/phase2_libs/releases/download/v1.0.0/setup_prover.sh > ~/setup_prover.sh && bash ~/setup_prover.sh 0x-Fill-in-your-reward-address-here"
 
-cd
-sha256sum cysic-prover/*.so cysic-prover/prover
+"cd
+sha256sum cysic-prover/*.so cysic-prover/prover"
 
-cd
+"cd
 mkdir -p cysic-prover/~/.cysic/assets/scroll/v1/params
 mkdir -p .scroll_prover/params
 curl -L --retry 999 -C - circuit-release.s3.us-west-2.amazonaws.com/setup/params20 -o .scroll_prover/params/params20
 curl -L --retry 999 -C - circuit-release.s3.us-west-2.amazonaws.com/setup/params24 -o .scroll_prover/params/params24
 curl -L --retry 999 -C - circuit-release.s3.us-west-2.amazonaws.com/setup/params25 -o .scroll_prover/params/params25
 cp .scroll_prover/params/* cysic-prover/~/.cysic/assets/scroll/v1/params/
-sha256sum .scroll_prover/params/*
+sha256sum .scroll_prover/params/*"
 
 apt install -y supervisor
 

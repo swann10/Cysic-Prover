@@ -10,12 +10,17 @@ Guide here: https://github.com/aidilfahmi/Testnet/blob/main/Tutorials/vast.ai.md
 
 4. Setting up Prover (0x-Fill with your address)
 
-"curl -L github.com/cysic-labs/phase2_libs/releases/download/v1.0.0/setup_prover.sh > ~/setup_prover.sh && bash ~/setup_prover.sh 0x-Fill-in-your-reward-address-here"
+```bash
+curl -L github.com/cysic-labs/phase2_libs/releases/download/v1.0.0/setup_prover.sh > ~/setup_prover.sh && bash ~/setup_prover.sh 0x-Fill-in-your-reward-address-here"
+```
 
-"cd
+```bash
+cd
 sha256sum cysic-prover/*.so cysic-prover/prover"
+```
 
-"cd
+```bash
+cd
 mkdir -p cysic-prover/~/.cysic/assets/scroll/v1/params
 mkdir -p .scroll_prover/params
 curl -L --retry 999 -C - circuit-release.s3.us-west-2.amazonaws.com/setup/params20 -o .scroll_prover/params/params20
@@ -23,9 +28,13 @@ curl -L --retry 999 -C - circuit-release.s3.us-west-2.amazonaws.com/setup/params
 curl -L --retry 999 -C - circuit-release.s3.us-west-2.amazonaws.com/setup/params25 -o .scroll_prover/params/params25
 cp .scroll_prover/params/* cysic-prover/~/.cysic/assets/scroll/v1/params/
 sha256sum .scroll_prover/params/*"
+```
 
+```bash
 apt install -y supervisor
+```
 
+```bash
 echo '[unix_http_server]
 file=/tmp/supervisor.sock   ; the path to the socket file
 
@@ -59,8 +68,11 @@ stdout_logfile_maxbytes=1GB
 stdout_logfile_backups=1
 environment=LD_LIBRARY_PATH="/root/cysic-prover",CHAIN_ID="534352"' > supervisord.conf
 supervisord -c supervisord.conf
+```
 
 - Cek Logs
+```bash
 supervisorctl tail -f cysic-prover
+```
 
 - Backup keys in /root/cysic-prover/~/.cysic/assets/ 
